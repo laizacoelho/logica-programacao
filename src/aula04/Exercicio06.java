@@ -20,12 +20,15 @@ public class Exercicio06 {
         int[] aposta = new int[13];
         int[] gabarito = new int[13];
         boolean ganhou = true;
+        int count = 0;
         for (int i=0; i<13; i++) {
             System.out.printf("Informe a resposta do jogo %d: ", (i+1));
             aposta[i] = scanner.nextInt();
-            gabarito[i] = rand.nextInt(4);
+            gabarito[i] = rand.nextInt(3) + 1;
             if(aposta[i] != gabarito[i]) {
                 ganhou = false;
+            } else {
+                count++;
             }
         }
         scanner.close();
@@ -34,6 +37,8 @@ public class Exercicio06 {
         for (int i=0; i<13; i++) {
             System.out.printf("%d ", gabarito[i]);
         }
+        System.out.printf("\nQuantidade de acertos: %d", count);
+
         if(ganhou) {
             System.out.printf("\nGANHADOR!!");
         } else {
